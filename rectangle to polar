@@ -1,0 +1,49 @@
+/*rectangle to polar class type conversion*/
+#include<iostream>
+#include<math.h>
+using namespace std;
+class polar{
+	private:
+		float radius, angle;
+	public:
+		polar(){
+		}
+		polar(float r, float a){
+			radius=r;
+			angle=a;
+		}
+		void display(){
+			cout<<"("<<radius<<","<<angle<<")"<<endl;
+		}
+};
+
+class rectangle{
+	private:
+		float xco, yco;
+	public:
+		rectangle(){
+		}
+		rectangle(float x, float y){
+			xco=x;
+			yco=y;
+		}
+		void display(){
+			cout<<"("<<xco<<","<<yco<<")"<<endl;
+		}
+		operator polar(){
+			float r= sqrt(xco*xco + yco*yco);
+			float a= atan(yco/xco);
+			return polar (r,a);
+		}
+};
+int main() 
+{
+	rectangle r(5.2020,5.2222);
+	polar p;
+	p=r;
+	cout<<"Rectangle coodinates:"<<endl;
+	r.display();
+	cout<<"polar coordinates"<<endl;
+	p.display();
+return 0;
+}
