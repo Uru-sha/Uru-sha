@@ -1,0 +1,32 @@
+//feet and inches to meter
+#include<iostream>
+using namespace std;
+class Height{
+	private:
+	int feet;
+	float inches;
+	public:
+		Height(){
+		}
+		Height (int f, float i){
+			feet =f;
+			inches=i;
+		}
+		operator float(){
+			float f=inches/12;
+			f=f+feet;
+			return (f/3.2808);
+		}
+	void display(){
+		cout<<feet<<" feet and "<<inches<<" inches."<<endl;
+	}
+};
+	int main()	
+	{
+	float meters;
+	Height h1(5, 5.0);
+	meters=h1;
+	h1.display();
+	cout<<"height of person in meter:"<<meters<<endl;	
+		return 0; 
+	}
