@@ -1,0 +1,51 @@
+/*polar to rectangle*/
+#include<iostream>
+#include<math.h>
+using namespace std;
+class rectangle{
+	private:
+		float xco, yco;
+	public:
+		rectangle(){
+		}
+		rectangle(float x, float y){
+			xco=x;
+			yco=y;
+		}
+		void display(){
+		cout<<"("<<xco<<","<<yco<<")"<<endl;
+		}
+};
+
+class polar{
+	private:
+		float radius, angle;
+	public:
+		polar(){
+		}
+		polar(float r, float a){
+			radius=r;
+			angle=a;
+		}
+		
+		void display(){
+		cout<<"("<<radius<<","<<angle<<")"<<endl;
+		}
+		
+		operator rectangle(){
+			float x=radius*cos(angle);
+			float y=radius*sin(angle);
+			return rectangle(x,y);
+		}		
+};
+int main()
+{
+polar p(10.0,0.758539);
+rectangle r;
+r=p;
+cout<<"polar coordinates:"<<endl;
+p.display();
+cout<<"Rectangle coordintes:"<<endl;
+r.display();
+return 0;
+}
