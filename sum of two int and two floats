@@ -1,0 +1,24 @@
+/*
+*function template
+*sum of two integers and two floats*/
+#include<iostream>
+using namespace std;
+template <class T>
+void sum(T x, T y)
+{
+	T s;
+	s=x+y;
+	cout<<x<<"+"<<y<<"="<<s<<endl;
+}
+int main()
+{
+	int i1,i2;
+	float f1,f2;
+	cout<<"Enter two integer numbers:";
+	cin>>i1>>i2;
+	sum(i1,i2);
+	cout<<endl<<"Enter two float numbers:";
+	cin>>f1>>f2;
+	sum(f1,f2);
+ return 0;
+}
